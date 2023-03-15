@@ -24,8 +24,12 @@ class QuickOrderController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $objects = $em->getRepository(QuickOrder::class)->findAll();
+        $objects = $this->getDoctrine()
+                ->getRepository(QuickOrder::class)
+                ->findBy(
+                    array(),
+                    array('createdAt' => 'DESC')
+                );
 
         return $this->render('admin/quickorder/index.html.twig', ['objects' => $objects]);
     }

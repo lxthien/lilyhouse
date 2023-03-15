@@ -22,6 +22,7 @@
                                         <th>Address</th>
                                         <th>Product</th>
                                         <th>Qty</th>
+                                        <th>Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,6 +35,7 @@
                                         <td>{{ row.getCustomerAddress() }}</td>
                                         <td>{{ row.getProduct() is not null ? row.getProduct().getName() : 'Removed' }}</td>
                                         <td>{{ row.getQty() }}</td>
+                                        <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
